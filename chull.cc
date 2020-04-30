@@ -1,6 +1,7 @@
 // C++ program to implement Quick Hull algorithm
 // to find convex hull.
 #include <iostream>
+#include <fstream>
 #include <set>
 
 // iPair is integer pairs
@@ -95,22 +96,26 @@ void printHull(iPair a[], int n)
     // a[max_x]
     quickHull(a, n, a[min_x], a[max_x], -1);
 
-    std::cout << "The points in Convex Hull are:\n";
+    std::cout << "Convex Hall Points in output.txt:\n";
+    std::ofstream myfile;
+    myfile.open("output.txt");
     while (!hull.empty())
     {
-        std::cout << "(" <<( *hull.begin()).first << ", "
-             << (*hull.begin()).second << ") ";
+
+        myfile << "(" <<( *hull.begin()).first << ", "
+             << (*hull.begin()).second << ") \n";
         hull.erase(hull.begin());
     }
+            myfile.close();
 }
 
 // Driver code
 
-/*int main()
+int main()
 {
     iPair a[] = {{0, 3}, {1, 1}, {2, 2}, {4, 4},
                {0, 0}, {1, 2}, {3, 1}, {3, 3}};
     int n = sizeof(a)/sizeof(a[0]);
     printHull(a, n);
     return 0;
-}*/
+}
