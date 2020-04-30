@@ -111,11 +111,11 @@ void printHull(iPair a[], int n)
 
 // Driver code
 
-int main()
+/*int main()
 {
     iPair a[] = {{0, 3}, {1, 1}, {2, 2}, {4, 4},
                {0, 0}, {1, 2}, {3, 1}, {3, 3}};
     int n = sizeof(a)/sizeof(a[0]);
     printHull(a, n);
     return 0;
-}
+}*/
