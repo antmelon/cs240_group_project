@@ -2,13 +2,12 @@
 // to find convex hull.
 #include <iostream>
 #include <set>
-using namespace std;
 
 // iPair is integer pairs
-#define iPair pair<int, int>
+#define iPair std::pair<int, int>
 
 // Stores the result (points of convex hull)
-set<iPair> hull;
+std::set<iPair> hull;
 
 // Returns the side of point p with respect to line
 // joining points p1 and p2.
@@ -71,7 +70,7 @@ void printHull(iPair a[], int n)
     // a[i].second -> y-coordinate of the ith point
     if (n < 3)
     {
-        cout << "Convex hull not possible\n";
+        std::cout << "Convex hull not possible\n";
         return;
     }
 
@@ -96,17 +95,17 @@ void printHull(iPair a[], int n)
     // a[max_x]
     quickHull(a, n, a[min_x], a[max_x], -1);
 
-    cout << "The points in Convex Hull are:\n";
+    std::cout << "The points in Convex Hull are:\n";
     while (!hull.empty())
     {
-        cout << "(" <<( *hull.begin()).first << ", "
+        std::cout << "(" <<( *hull.begin()).first << ", "
              << (*hull.begin()).second << ") ";
         hull.erase(hull.begin());
     }
 }
 
 // Driver code
-/*
+
 int main()
 {
     iPair a[] = {{0, 3}, {1, 1}, {2, 2}, {4, 4},
@@ -114,4 +113,4 @@ int main()
     int n = sizeof(a)/sizeof(a[0]);
     printHull(a, n);
     return 0;
-}*/
+}
