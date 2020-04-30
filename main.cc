@@ -8,10 +8,12 @@ int main(int argc, char * argv[]){
    //pass random coordinates to array
    //
    //Initiialize Quickhull and Giftwrapping
-   
+
    QuickHull qh;
    GiftWrap gw;
    //Print out hull coordinates/time for quickhull
+   //size = sizeof(coordinates)/sizeof(coordinates[0])
+   //printHull(coordinates, size)
    std::cout << "------Beginning QuickHull------" << std::endl;
    auto t1 = std::chrono::high_resolution_clock::now();
    qh.printHull(coordinates);
@@ -21,7 +23,7 @@ int main(int argc, char * argv[]){
 
    std::cout << "------QuickHull Complete In " << duration << " milliseconds------" << std::endl;
    //Print out hull coordinates/time for giftwrapping
-   
+
    std::cout << "------Beginning Gift Wrapping------" << std::endl;
    auto t3 = std::chrono::high_resolution_clock::now();
    gw.printHull(coordinates);
