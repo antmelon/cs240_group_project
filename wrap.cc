@@ -1,9 +1,8 @@
 // Implementation of Gift wrapping through c++
 #include <iostream>
 #include <set>
-using namespace std;
 
-#define iPair pair<int, int>
+#define iPair std::pair<int, int>
 
 
 int isClockwise(iPair p, iPair q, iPair r){
