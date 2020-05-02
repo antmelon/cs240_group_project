@@ -8,14 +8,11 @@
 #define CHULL
 
 class QuickHull{
-    // Stores the result (points of convex hull)
-    // iPair is integer pairs
+
     #define iPair std::pair<int, int>
     std::set<iPair> hull;
 public:
     int counter = 0;
-    // Returns the side of point p with respect to line
-    // joining points p1 and p2.
     int findSide(iPair p1, iPair p2, iPair p)
     {
         int val = (p.second - p1.second) * (p2.first - p1.first) -
@@ -30,23 +27,17 @@ public:
         return 0;
     }
 
-    // returns a value proportional to the distance
-    // between the point p and the line joining the
-    // points p1 and p2
     int lineDist(iPair p1, iPair p2, iPair p)
     {
         return abs ((p.second - p1.second) * (p2.first - p1.first) -
         (p2.second - p1.second) * (p.first - p1.first));
     }
 
-    // End points of line L are p1 and p2.  side can have value
-    // 1 or -1 specifying each of the parts made by the line L
     void quickHull(iPair a[], int n, iPair p1, iPair p2, int side)
     {
         int ind = -1;
         int max_dist = 0;
-        // finding the point with maximum distance
-        // from L and also on the specified side of L.
+
         for (int i=0; i<n; i++)
         {
             int temp = lineDist(p1, p2, a[i]);
@@ -57,8 +48,6 @@ public:
             }
         }
 
-        // If no point is found, add the end points
-        // of L to the convex hull.
         if (ind == -1)
         {
             hull.insert(p1);
@@ -81,8 +70,6 @@ public:
             return;
         }
 
-        // Finding the point with minimum and
-        // maximum x-coordinate
         int min_x = 0, max_x = 0;
         for (int i=1; i<n; i++)
         {
@@ -92,14 +79,7 @@ public:
             max_x = i;
         }
 
-        // Recursively find convex hull points on
-        // one side of line joining a[min_x] and
-        // a[max_x]
         quickHull(a, n, a[min_x], a[max_x], 1);
-
-        // Recursively find convex hull points on
-        // other side of line joining a[min_x] and
-        // a[max_x]
         quickHull(a, n, a[min_x], a[max_x], -1);
 
         std::cout << "QuickHull Points in output.txt:\n";
@@ -117,4 +97,3 @@ public:
     }
 };
 #endif
-
