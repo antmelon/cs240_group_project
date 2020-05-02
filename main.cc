@@ -10,7 +10,7 @@ int main(int argc, char * argv[]){
    //pass random coordinates to array
    //
    //Initiialize Quickhull and Giftwrapping
-
+   srand (time(NULL));
    QuickHull qh;
    //GiftWrap gw;
    for(int i = 0; i < 5000; i++){
