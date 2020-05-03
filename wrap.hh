@@ -11,7 +11,7 @@ class GiftWrap{
     #define iPair std::pair<int, int>
     std::set<iPair> hull;
 public:
-    int counter = 0;
+    long int counter = 0;
 
 
 
@@ -25,7 +25,7 @@ public:
 } 
   
 // Prints convex hull of a set of n iPairs. 
-void convexHull(iPair points[], int n) 
+void convexHull(iPair points[], long int n) 
 { 
     // There must be at least 3 points 
     if (n < 3) return; 
@@ -34,15 +34,15 @@ void convexHull(iPair points[], int n)
     std::vector<iPair> hull; 
   
     // Find the leftmost point 
-    int l = 0; 
-    for (int i = 1; i < n; i++) 
+    long int l = 0; 
+    for (long int i = 1; i < n; i++) 
         if (points[i].first < points[l].first) 
             l = i; 
   
     // Start from leftmost point, keep moving counterclockwise 
     // until reach the start point again.  This loop runs O(h) 
     // times where h is number of points in result or output. 
-    int p = l, q; 
+    long int p = l, q; 
     do
     { 
         // Add current point to result 
@@ -54,7 +54,7 @@ void convexHull(iPair points[], int n)
         // wise point in q. If any point 'i' is more counterclock- 
         // wise than q, then update q. 
         q = (p+1)%n; 
-        for (int i = 0; i < n; i++) 
+        for (long int i = 0; i < n; i++) 
         { 
            // If i is more counterclockwise than current q, then 
            // update q 
@@ -65,7 +65,7 @@ void convexHull(iPair points[], int n)
   
         // Now q is the most counterclockwise with respect to p 
         // Set p as q for next iteration, so that q is added to 
-        // result 'hull' 
+        // result 'hull':q
         p = q; 
   
     } while (p != l);  // While we don't come to first point 
@@ -73,7 +73,7 @@ void convexHull(iPair points[], int n)
         std::cout << "There are " << counter << " points in Giftwrapping" << std::endl;
         std::ofstream myfile;
         myfile.open("output2.txt");
-    for (int i = 0; i < counter; i++) 
+    for (long int i=0; i < counter; i++) 
             myfile << "(" << hull[i].first << ", "
               << hull[i].second << ")\n"; 
     } 

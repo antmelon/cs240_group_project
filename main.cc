@@ -7,15 +7,15 @@
 #define Coords std::pair<int, int>
 
 int main(int argc, char * argv[]){
-   int numCords = 1000000;
-   Coords coordinates[numCords] = {};
+   long int numCords = 1000000;
+   Coords coordinates[numCords];
    //pass random coordinates to array
    //
    //Initiialize Quickhull and Giftwrapping
    srand (time(NULL));
    QuickHull qh;
    GiftWrap gw;
-   for(int i = 0; i < numCords; i++){
+   for(long int i = 0; i < numCords; i++){
        Coords newCoord;
        newCoord.first = rand() % 1000;
        newCoord.second = rand() % 1000;
@@ -26,7 +26,7 @@ int main(int argc, char * argv[]){
      //  std::cout << "(" << coordinates[i].first << "," << coordinates[i].second << "), ";
    //}
    std::cout << "there are " << numCords << " coordinates being processed" << std::endl;
-   int n = sizeof(coordinates)/sizeof(coordinates[0]);
+   long int n = sizeof(coordinates)/sizeof(coordinates[0]);
    //Print out hull coordinates/time for quickhull
    //size = sizeof(coordinates)/sizeof(coordinates[0])
    //printHull(coordinates, size)
