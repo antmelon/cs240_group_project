@@ -44,7 +44,6 @@ int main(int argc, char * argv[]){
    auto t3 = std::chrono::high_resolution_clock::now();
    gw.convexHull(coordinates,n);
    auto t4 = std::chrono::high_resolution_clock::now();
-   std::cout << t4 << "and" << t3 << std::endl;
    auto duration2 = std::chrono::duration_cast<std::chrono::milliseconds>( t4 - t3 ).count();
 
    std::cout << "------Gift Wrapping Complete In " << duration2 << " milliseconds------" << std::endl;
