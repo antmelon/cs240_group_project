@@ -7,7 +7,7 @@
 #define Coords std::pair<int, int>
 
 int main(int argc, char * argv[]){
-   int numCords = 5000;
+   int numCords = 1000000;
    Coords coordinates[numCords] = {};
    //pass random coordinates to array
    //

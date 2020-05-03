@@ -73,7 +73,7 @@ void convexHull(iPair points[], int n)
         std::cout << "There are " << counter << " points in Giftwrapping" << std::endl;
         std::ofstream myfile;
         myfile.open("output2.txt");
-    for (int i = 0; i < hull.size(); i++) 
+    for (int i = 0; i < counter; i++) 
             myfile << "(" << hull[i].first << ", "
               << hull[i].second << ")\n"; 
     } 
