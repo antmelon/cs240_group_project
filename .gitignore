@@ -1,3 +1,6 @@
 a.out
 output.txt
 output2.txt
+make-hull.dSYM
+make-hull
+*.gch
