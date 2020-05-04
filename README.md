@@ -90,7 +90,7 @@ Gift Wrapping has a time complexity of O(nh), where n is the number of points in
 | 1000 points | Best case (μs) | Worst case (μs) | Average case  (μs) | Lowest number of points | Highest number of points | Average number of points |
 |-------------|----------------|-----------------|--------------------|-------------------------|--------------------------|--------------------------|
 | Anthony | 999 | 4762 | 1875 | 12 | 24 | 18 |
-| Tyler |  |  |  |  |  |  |
+| Tyler | 647 | 1381 | 1047 | 12 | 22 | 17 |
 | Stephen |  |  |  |  |  |  |
 | Average |  |  |  |  |  |  |
 
