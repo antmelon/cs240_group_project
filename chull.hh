@@ -12,7 +12,13 @@ class QuickHull{
     #define iPair std::pair<int, int>
     std::set<iPair> hull;
 public:
+<<<<<<< HEAD
     int counter = 0;
+=======
+    long int counter = 0;
+    // Returns the side of point p with respect to line
+    // joining points p1 and p2.
+>>>>>>> bbc962f84fd1290bdd55c4df02f7fe6a2d9f2984
     int findSide(iPair p1, iPair p2, iPair p)
     {
         int val = (p.second - p1.second) * (p2.first - p1.first) -
@@ -33,12 +39,24 @@ public:
         (p2.second - p1.second) * (p.first - p1.first));
     }
 
+<<<<<<< HEAD
     void quickHull(iPair a[], int n, iPair p1, iPair p2, int side)
     {
         int ind = -1;
         int max_dist = 0;
 
         for (int i=0; i<n; i++)
+=======
+    // End points of line L are p1 and p2.  side can have value
+    // 1 or -1 specifying each of the parts made by the line L
+    void quickHull(iPair a[], long int n, iPair p1, iPair p2, int side)
+    {
+        int ind = -1;
+        int max_dist = 0;
+        // finding the point with maximum distance
+        // from L and also on the specified side of L.
+        for (long int i=0; i<n; i++)
+>>>>>>> bbc962f84fd1290bdd55c4df02f7fe6a2d9f2984
         {
             int temp = lineDist(p1, p2, a[i]);
             if (findSide(p1, p2, a[i]) == side && temp > max_dist)
@@ -61,7 +79,7 @@ public:
         quickHull(a, n, a[ind], p2, -findSide(a[ind], p2, p1));
     }
 
-    void printHull(iPair a[], int n)
+    void printHull(iPair a[], long int n)
     {
         // a[i].second -> y-coordinate of the ith point
         if (n < 3)
@@ -70,8 +88,15 @@ public:
             return;
         }
 
+<<<<<<< HEAD
         int min_x = 0, max_x = 0;
         for (int i=1; i<n; i++)
+=======
+        // Finding the point with minimum and
+        // maximum x-coordinate
+        long int min_x = 0, max_x = 0;
+        for (long int i=1; i<n; i++)
+>>>>>>> bbc962f84fd1290bdd55c4df02f7fe6a2d9f2984
         {
             if (a[i].first < a[min_x].first)
             min_x = i;

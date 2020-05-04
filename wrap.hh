@@ -3,15 +3,15 @@
 #include <set>
 #include <vector>
 
-
-
+#ifndef WRAP
+#define WRAP
 class GiftWrap{
     // Stores the result (points of convex hull)
     // iPair is integer pairs
     #define iPair std::pair<int, int>
     std::set<iPair> hull;
 public:
-    int counter = 0;
+    long int counter = 0;
 
 
 
@@ -25,7 +25,7 @@ public:
 } 
   
 // Prints convex hull of a set of n iPairs. 
-void convexHull(iPair points[], int n) 
+void convexHull(iPair points[], long int n) 
 { 
     // There must be at least 3 points 
     if (n < 3) return; 
@@ -34,15 +34,15 @@ void convexHull(iPair points[], int n)
     std::vector<iPair> hull; 
   
     // Find the leftmost point 
-    int l = 0; 
-    for (int i = 1; i < n; i++) 
+    long int l = 0; 
+    for (long int i = 1; i < n; i++) 
         if (points[i].first < points[l].first) 
             l = i; 
   
     // Start from leftmost point, keep moving counterclockwise 
     // until reach the start point again.  This loop runs O(h) 
     // times where h is number of points in result or output. 
-    int p = l, q; 
+    long int p = l, q; 
     do
     { 
         // Add current point to result 
@@ -54,38 +54,28 @@ void convexHull(iPair points[], int n)
         // wise point in q. If any point 'i' is more counterclock- 
         // wise than q, then update q. 
         q = (p+1)%n; 
-        for (int i = 0; i < n; i++) 
+        for (long int i = 0; i < n; i++) 
         { 
            // If i is more counterclockwise than current q, then 
            // update q 
-           if (orientation(points[p], points[i], points[q]) == 2) 
-               q = i;
-               count++; 
+           if (orientation(points[p], points[i], points[q]) == 2){  
+               q = i; 
+               counter++; }
         } 
-
+  
         // Now q is the most counterclockwise with respect to p 
         // Set p as q for next iteration, so that q is added to 
-        // result 'hull' 
+        // result 'hull':q
         p = q; 
   
     } while (p != l);  // While we don't come to first point 
-  
-    // Print Result 
-
         std::cout << "Giftwrapping Points in output2.txt:\n";
-        std::cout << "There are " << counter << " points in QuickHull" << std::endl;
+        std::cout << "There are " << counter << " points in Giftwrapping" << std::endl;
         std::ofstream myfile;
         myfile.open("output2.txt");
-    for (int i = 0; i < hull.size(); i++) 
+    for (long int i=0; i < counter; i++) 
             myfile << "(" << hull[i].first << ", "
               << hull[i].second << ")\n"; 
     } 
  };
-//p = leftmost point (cords can just be whatever point is the most negative x)
-//prime = p
-//find a point q that seems like it should be the next coordinate point
-// create algorithm to determine when p and q are counter clockwise from the rest of the data points
-//repeat this process until you return to prime
-
-
-//just setting this up for future refernce, will add more to it in the future
+#endif
