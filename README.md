@@ -1,7 +1,7 @@
 # CS240 Group Project
 
 ### Group Members
-- Anthony Longo: Joint Implementation, Testing, Analyzation
+- Anthony Longo: Joint Implementation, Documentation
 - Tyler Katz: Quickhull Implementation
 - Stephen Black: Gift Wrapping Inplementation
 
